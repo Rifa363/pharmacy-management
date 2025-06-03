@@ -1,0 +1,710 @@
+/* Styling umum untuk body halaman home */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6; /* Warna latar belakang yang lembut */
+    color: #333;
+    display: flex; /* Menggunakan flexbox untuk layout utama (header + main content) */
+    flex-direction: column; /* Header di atas, konten di bawah */
+    min-height: 100vh;
+}
+
+/* Styling untuk header aplikasi */
+.app-header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Bayangan halus */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Header tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000; /* Pastikan header di atas elemen lain */
+    border-bottom: 1px solid #eee;
+}
+
+.app-header h1 {
+    margin: 0;
+    color: #3f51b5; /* Warna biru untuk judul */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Tombol hamburger untuk sidebar */
+.app-header .openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    color: #3f51b5;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.app-header .openbtn:hover {
+    transform: scale(1.1);
+}
+
+/* Informasi pengguna di header */
+.app-header .user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antar elemen */
+}
+
+.app-header .user-info span {
+    font-size: 17px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Tombol logout di header */
+.app-header .logout-btn {
+    background-color: #f44336; /* Warna merah */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(244, 67, 54, 0.2);
+}
+
+.app-header .logout-btn:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Konten utama halaman dashboard */
+.main-content {
+    flex-grow: 1; /* Mengisi sisa ruang vertikal */
+    padding: 30px;
+    margin-left: 0; /* Diatur oleh JS saat sidebar terbuka */
+    transition: margin-left 0.5s; /* Animasi perpindahan konten saat sidebar terbuka/tutup */
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 70px); /* Sesuaikan dengan tinggi header */
+    box-sizing: border-box; /* Pastikan padding tidak menambah tinggi */
+}
+
+.main-content h1 {
+    color: #3f51b5;
+    margin-bottom: 25px;
+    font-size: 32px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.main-content p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Layout untuk widget dashboard */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Kolom responsif */
+    gap: 25px; /* Jarak antar widget */
+    margin-top: 30px;
+}
+
+/* Styling untuk setiap widget */
+.widget {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px; /* Sudut lebih membulat */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); /* Bayangan lebih dalam */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.widget:hover {
+    transform: translateY(-7px); /* Efek angkat lebih tinggi saat hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+}
+
+.widget-icon {
+    font-size: 45px;
+    color: #009688; /* Warna teal untuk ikon */
+    margin-bottom: 15px;
+}
+
+.widget h3 {
+    color: #009688;
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.widget p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #4CAF50; /* Warna hijau untuk angka metrik */
+    margin: 0;
+}
+
+/* Bagian aktivitas terbaru */
+.recent-activity {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    margin-top: 40px;
+    border: 1px solid #eee;
+}
+
+.recent-activity h2 {
+    color: #3f51b5;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activity ul li {
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    color: #555;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+
+.recent-activity ul li:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    margin-right: 15px;
+    color: #4CAF50; /* Warna hijau untuk ikon aktivitas */
+    font-size: 20px;
+}
+
+.recent-activity ul li span {
+    font-weight: bold;
+    color: #3f51b5;
+    margin-right: 8px;
+}
+
+/* --- Gaya untuk Modul Manajemen Obat, Penjualan & Supplier --- */
+
+/* Card umum untuk form dan tabel */
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px; /* Jarak antar card */
+    border: 1px solid #eee;
+}
+
+.card h2 {
+    color: #3f51b5;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Styling untuk grup input form */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 15px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group input[type="date"],
+.input-group textarea,
+.input-group select {
+    width: calc(100% - 24px); /* Kurangi padding dari lebar total */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+}
+
+textarea {
+    resize: vertical; /* Izinkan textarea diubah ukurannya secara vertikal */
+}
+
+/* Tombol Aksi Form */
+.btn-primary {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background-color: #9E9E9E; /* Abu-abu */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Untuk tag <a> */
+    display: inline-block; /* Untuk tag <a> */
+}
+
+.btn-cancel:hover {
+    background-color: #757575;
+    transform: translateY(-2px);
+}
+
+/* Styling untuk Tabel Responsif */
+.table-responsive {
+    overflow-x: auto; /* Mengizinkan scroll horizontal untuk tabel besar */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Hilangkan jarak antar border sel */
+    margin-top: 20px;
+}
+
+table thead tr {
+    background-color: #3f51b5; /* Biru untuk header tabel */
+    color: white;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Border antar sel */
+    vertical-align: top;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang bergantian untuk baris */
+}
+
+table tbody tr:hover {
+    background-color: #e0e0e0; /* Warna latar belakang saat hover pada baris */
+}
+
+/* Styling untuk kolom aksi di tabel */
+.actions {
+    white-space: nowrap; /* Mencegah tombol aksi pecah baris */
+    text-align: center;
+}
+
+.action-btn {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn i {
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: #2196F3; /* Biru untuk edit */
+}
+
+.edit-btn:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #f44336; /* Merah untuk hapus */
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Notifikasi (alert) */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* --- Gaya Spesifik untuk Halaman Penjualan (sales_management.php) --- */
+.sales-form-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dua kolom */
+    gap: 30px; /* Jarak antar kolom */
+}
+
+.sales-cart-section {
+    grid-column: span 1; /* Pastikan mengambil 1 kolom */
+}
+
+.search-medicine-container {
+    position: relative; /* Penting untuk positioning hasil pencarian */
+    margin-bottom: 20px;
+}
+
+#medicine_search {
+    width: calc(100% - 24px); /* Sesuaikan dengan padding */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+}
+
+.search-results {
+    position: absolute;
+    width: 100%; /* Lebar sama dengan input pencarian */
+    max-height: 200px; /* Batasi tinggi dan tambahkan scroll */
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none; /* Hilangkan border atas agar menyatu dengan input */
+    border-radius: 0 0 8px 8px; /* Sudut membulat di bawah */
+    z-index: 100; /* Pastikan di atas elemen lain */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.search-results div {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee; /* Garis pemisah antar hasil */
+}
+
+.search-results div:last-child {
+    border-bottom: none; /* Hilangkan garis pemisah terakhir */
+}
+
+.search-results div:hover {
+    background-color: #f0f0f0; /* Warna latar belakang saat hover */
+}
+
+.search-results div span {
+    display: block; /* Harga di baris baru */
+    font-size: 0.9em;
+    color: #666;
+}
+
+#sales_cart_items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#sales_cart_items th, #sales_cart_items td {
+    border: 1px solid #eee;
+    padding: 8px;
+    text-align: left;
+}
+
+#sales_cart_items th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.cart-total span {
+    color: #3f51b5; /* Warna biru untuk total */
+}
+
+.remove-item-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* --- Gaya Spesifik untuk Halaman Laporan (reports_management.php) --- */
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap; /* Izinkan wrap pada layar kecil */
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: flex-end; /* Sejajarkan item ke bawah */
+}
+
+.input-group-inline {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ambil ruang yang tersedia */
+    min-width: 180px; /* Batas lebar minimum */
+}
+
+.input-group-inline label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+    font-size: 15px;
+}
+
+.filter-form input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.filter-form .btn-primary {
+    align-self: flex-end; /* Sejajarkan tombol ke bawah */
+    margin-right: 0; /* Hapus margin kanan default */
+    padding: 10px 20px; /* Sesuaikan padding tombol */
+}
+
+/* Highlighting untuk baris tabel laporan stok */
+.highlight-low-stock {
+    background-color: #ffcccc; /* Merah muda */
+    border-left: 5px solid #ff0000; /* Border merah */
+}
+
+.highlight-expiry {
+    background-color: #ffffcc; /* Kuning muda */
+    border-left: 5px solid #ffcc00; /* Border kuning */
+}
+
+.highlight-critical { /* Untuk stok rendah DAN kadaluarsa */
+    background-color: #ff9999; /* Merah lebih gelap */
+    border-left: 5px solid #cc0000; /* Border merah gelap */
+    font-weight: bold;
+}
+
+/* Gaya untuk footer tabel */
+table tfoot td {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    border-top: 2px solid #ccc;
+    padding: 12px 15px;
+}
+
+/* --- Gaya untuk Modal (Pop-up) --- */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; /* Tetap di layar */
+    z-index: 2000; /* Di atas semua elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Izinkan scroll jika konten terlalu besar */
+    background-color: rgba(0,0,0,0.4); /* Latar belakang gelap transparan */
+    animation: fadeInModal 0.3s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Tengah secara vertikal dan horizontal */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Lebar modal */
+    max-width: 700px; /* Batas lebar maksimum */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideInModal 0.3s forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #3f51b5;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-content h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #009688;
+    font-size: 20px;
+}
+
+/* Tabel di dalam modal */
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.modal-content table th,
+.modal-content table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.modal-content table thead th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+
+/* Media queries untuk responsivitas */
+@media (max-width: 992px) {
+    .sales-form-section {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    .app-header h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .app-header .user-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .main-content {
+        padding: 20px;
+    }
+    .main-content h1 {
+        font-size: 26px;
+    }
+    .dashboard-widgets {
+        grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+    }
+    .card {
+        padding: 20px;
+    }
+    .card h2 {
+        font-size: 20px;
+    }
+    table th, table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .btn-primary, .btn-cancel {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-group-inline {
+        width: 100%;
+        min-width: unset;
+    }
+    .filter-form .btn-primary {
+        width: 100%;
+    }
+    .modal-content {
+        width: 90%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+}

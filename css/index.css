@@ -1,0 +1,130 @@
+/* Styling umum untuk body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7F00FF, #E100FF); /* Gradien ungu-pink yang menarik */
+    color: #333;
+    overflow: hidden; /* Mencegah scroll yang tidak diinginkan */
+}
+
+/* Kontainer utama untuk form login */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan yang elegan */
+    text-align: center;
+    width: 380px;
+    max-width: 90%; /* Responsif untuk layar kecil */
+    animation: fadeIn 1s ease-out; /* Animasi fade-in saat dimuat */
+    position: relative;
+    z-index: 1;
+}
+
+/* Animasi fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styling untuk icon apotek */
+.login-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1)); /* Bayangan pada icon */
+}
+
+/* Styling untuk judul H2 */
+h2 {
+    color: #4CAF50; /* Warna hijau cerah */
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Styling untuk paragraf deskripsi */
+p {
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+/* Grup input untuk label dan input */
+.input-group {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 15px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 24px); /* Kurangi padding dari lebar total */
+    padding: 14px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Sudut membulat pada input */
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #4CAF50; /* Warna border saat fokus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* Bayangan saat fokus */
+}
+
+/* Styling untuk tombol submit */
+button[type="submit"] {
+    background-color: #4CAF50; /* Warna hijau cerah */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Sedikit lebih gelap saat hover */
+    transform: translateY(-3px); /* Efek angkat saat hover */
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0); /* Kembali ke posisi semula saat diklik */
+    box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Styling untuk pesan error */
+.error-message {
+    color: #d9534f; /* Warna merah untuk error */
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    animation: shake 0.5s; /* Animasi guncangan untuk error */
+}
+
+/* Animasi guncangan */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
